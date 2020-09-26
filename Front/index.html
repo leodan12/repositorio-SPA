@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title></head>
+<body>
+    <label for="">Español</label>
+    <input type="text" id="español" required><br>
+    <label for="">Ingles</label>
+    <input type="text" id="ingles"><br>
+    <input type="button" value="Traducir" onclick="traducir()">
+    <script>        
+    //esto es un comentario
+        function traducir()
+        {            
+            var e=document.getElementById('español').value.toUpperCase();
+            var i=document.getElementById('ingles');
+            switch(e)
+            {
+                case 'CASA':
+                    i.value='HOUSE';
+                    break;
+                case 'LIBRO':
+                    i.value='BOOK';
+                    break;
+                case 'MUNDO':
+                    i.value='WORLD';
+                    break;
+                case 'PAIS':
+                    i.value='COUNTRY';
+                    break;
+                default:
+                    i.value='NO EXISTE';
+            }
+        }
+    </script>
+</body></html>

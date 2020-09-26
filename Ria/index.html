@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Document</title></head>
+<body>
+    <label for="">Español</label><input type="text" id="español" required><br>
+    <label for="">Ingles</label><input type="text" id="ingles"><br>
+    <input type="button" value="Traducir" onclick="traducir()">
+    <script>
+        function traducir()
+        {
+            var e=document.getElementById('español').value;
+            try 
+            {
+                ajax=new XMLHttpRequest();                ajax.open("GET","http://localhost/traductor/ria/traduce.php?español="+e+"",true);
+                ajax.onreadystatechange=function()
+		{
+		if(ajax.readyState === XMLHttpRequest.DONE && ajax.status === 200) 
+                 {
+                        document.getElementById('ingles').value = ajax.responseText;
+                 }}
+                ajax.send();
+            }
+            catch (error) {
+                alert('Error');
+            } 
+        }
+    </script></body></html>
